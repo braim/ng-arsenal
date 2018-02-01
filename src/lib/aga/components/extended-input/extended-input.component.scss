@@ -1,0 +1,16 @@
+$errorColor : rgb(104, 22, 22);
+.help-block{
+    color: $errorColor
+}
+label.has-error{
+    color:  $errorColor;
+}
+.has-error{
+    border-color: $errorColor;
+}
+.control-label.required span.astrik:after { 
+    color: $errorColor;
+    content: "*";
+    position: absolute;
+
+  }

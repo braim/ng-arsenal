@@ -1,0 +1,20 @@
+<div>
+  <div class="menu-head">
+      <h1>Partner Portal</h1>
+      <span>Powered by <strong>Allianz Worldwide Partners</strong></span>
+  </div>
+  <div class="menu-body">
+    <div class="searchbox">
+      <input type="text" placeholder="Quick search">
+    </div>
+    <ul>
+      <li *ngFor="let menuitem of menuitems" [ngClass]="'menu-'+menuitem.state" (click)="select(menuitem)">
+        <img class="icon" src="{{menuitem.icon | imgcdn}}" alt="{{menuitem.text}}" >
+        <span>{{menuitem.text}}</span>
+        </li>
+    </ul>
+  </div>
+  <div class="menu-foot">
+    <img class="logo" src="{{'awp-logo.png' | imgcdn}}">
+  </div>
+</div>

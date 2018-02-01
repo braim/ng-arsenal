@@ -1,0 +1,25 @@
+img {
+    width:79px;
+}
+h2{
+    display: inline;
+    margin-left: 50px;
+    font-size: 20px;
+}
+div {
+    text-align: center
+}
+div.title-bar-menu{
+    text-align: right;
+    
+}
+div.title-bar-header{
+    
+    
+}
+
+div.title-bar-header, div.title-bar-menu {
+    border-bottom: solid 1px lightgray;
+    padding: 10px;
+    background-color: white;
+}

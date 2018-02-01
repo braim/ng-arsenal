@@ -1,0 +1,9 @@
+<aga-extended-input [class]="class" [label]="label"  [field]="field" [errorDefs]="errorDefs">
+    <div class="input-group ng-datepane">
+        <input #in [id]="fieldId" class="form-control hasDatePicker" placeholder="dd/mm/yyyy" type="text"
+         [formControl]="field" (blur)="onInputBlur()">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+</aga-extended-input>

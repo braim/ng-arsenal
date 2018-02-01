@@ -1,0 +1,47 @@
+<div class="cuppa-dropdown" (clickOutside)="closeDropdown()">
+    <div class="selected-list">
+        <button class="c-btn  form-control" (click)="toggleDropdown()" type="button">
+            
+            <span *ngIf="!settings.badgeShow || selectedItems.length == 0">{{settings.text}}</span>
+            <span *ngIf="settings.badgeShow && settings.singleSelection">
+                <span *ngFor="let item of selectedItems;trackBy: trackByFn;">
+                    {{item.text}}
+                </span>
+            </span>
+            <div class="c-list" *ngIf="settings.badgeShow && selectedItems.length > 0 && !settings.singleSelection && !justSayAll">
+                <div class="c-token" *ngFor="let item of selectedItems;trackBy: trackByFn;let k = index" [hidden]="k > settings.badgeShowLimit-1">
+                    <span class="c-label">{{item.text}}</span>
+                    <span class="glyphicon glyphicon-remove" (click)="onItemClick(item)"></span>
+                </div>
+            </div> 
+            <span *ngIf="settings.badgeShow && selectedItems.length > settings.badgeShowLimit && settings.badgeShowLimit != 0 && !justSayAll">+{{selectedItems.length - settings.badgeShowLimit }}</span>
+            <span *ngIf="settings.badgeShow && selectedItems.length > settings.badgeShowLimit && settings.badgeShowLimit == 0 && !justSayAll">{{selectedItems.length}} Selected</span>
+            <span *ngIf="justSayAll">{{settings.text_allselected}}</span>
+            
+            <span *ngIf="!settings.noglyph" class="glyphicon " [ngClass]="{'glyphicon-chevron-down': !isActive,'glyphicon-chevron-up':isActive}"></span>
+            <span *ngIf="settings.noglyph" class="select2-arrow" role="presentation"><b role="presentation"></b></span>
+        </button>      
+    </div>
+    <div class="dropdown-list" [hidden]="!isActive">
+    <div class="arrow-up"></div>
+    <div class="list-area">
+        <div class="pure-checkbox select-all" *ngIf="settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection" (click)="toggleSelectAll()">
+            <input type="checkbox" [checked]="isSelectAll" [disabled]="settings.limitSelection == selectedItems.length"/>
+            <label>
+                <span [hidden]="isSelectAll">{{settings.selectAllText}}</span>
+                <span [hidden]="!isSelectAll">{{settings.unSelectAllText}}</span>
+            </label>
+        </div>   
+        <div class="list-filter" *ngIf="settings.enableSearchFilter">
+            <span class="glyphicon glyphicon-search"></span>
+            <input type="text" placeholder="Search" [(ngModel)]="filter.text">
+        </div> 
+    <ul [style.maxHeight] = "settings.maxHeight+'px'">
+        <li *ngFor="let item of data | listFilter:filter; let i = index;" (click)="onItemClick(item,i)" class="pure-checkbox">
+            <input type="checkbox" [checked]="isSelected(item)" [disabled]="settings.limitSelection == selectedItems.length && !isSelected(item)"/>
+            <label>{{item.text}}</label>
+        </li>
+    </ul>
+    </div>
+    </div>
+</div>

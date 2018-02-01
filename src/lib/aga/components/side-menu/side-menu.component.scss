@@ -1,0 +1,104 @@
+$agaDargBlue:  rgba(0, 47, 111, 1);
+$agaMedBlue: rgba(0, 55, 129, 1);
+$agaLightBlue:  rgb(73, 110, 189);
+$aga32px : 32px;
+$agaMenuLeftMargin: 24px;
+
+:host {
+    display: flex;
+    flex-flow: column;
+    background-color: $agaMedBlue;
+    color: white;
+    width: 250px;
+}
+.menu-head {
+    flex-grow: 0;
+    background-color: $agaDargBlue;
+    padding: 10px;
+    padding-left: $agaMenuLeftMargin;
+    font-size: smaller;
+}
+.menu-head h1{
+    text-transform: uppercase;
+    margin-top: 0px;
+}
+.menu-head span{
+    font-size: 12px;
+}
+
+.menu-body {
+    flex-grow: 1;    
+}
+.menu-body > div.searchbox{
+    padding-top:30px;
+    padding-bottom: 20px;
+    text-align: left;    
+}
+.menu-body > div.searchbox > input {
+    background-color: $agaDargBlue;
+    border: none 0px;
+    height: $aga32px;
+    padding-left: $aga32px / 4;
+    color: white;
+    margin-left: $agaMenuLeftMargin;
+}
+.menu-body > ul {
+    list-style: none;  
+    margin-top: 0px; /* menu starts right after search*/  
+    padding-left: 0px;
+}
+.menu-body > ul > li {
+    margin-bottom: 4px;
+    padding-left: 0px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-left: solid 4px $agaDargBlue; /* same-color left border when not selected, to avoid things move when border introduced */
+}
+
+.menu-body > ul > li.menu-selected {
+    background-color: $agaDargBlue;
+    border-left: solid 4px $agaLightBlue;
+}
+.menu-body li {
+    cursor: pointer;
+}
+.menu-body li.menu-disabled {
+    color: gray;
+    cursor:not-allowed;
+}
+
+img.icon{
+    vertical-align: middle;
+    margin-right: 16px;
+    margin-left: $agaMenuLeftMargin;
+    width: $aga32px;
+}
+
+.menu-foot {
+    flex-grow: 0;
+    text-align: center;
+}
+.menu-foot > img.logo {
+    width: $aga32px * 6;
+}
+
+
+/* button animation. do we need? If yes what kind of? */
+.menu-body li.menu-selected{ 
+    animation: anim-effect-agamenu 0.3s forwards; 
+}
+
+@keyframes anim-effect-agamenu {
+	0% {
+        background-color: $agaLightBlue;
+		//transform: scale3d(0.8, 0.8, 1);
+	}
+	25%, 50% {
+		//opacity: 0.8;
+	}
+	100% {
+        background-color: $agaDargBlue;
+		//opacity: 1;
+		//transform: scale3d(1.0, 1.0, 1);
+	}
+}

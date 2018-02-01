@@ -1,0 +1,15 @@
+<aga-extended-input [class]="class" [label]="label"  [field]="field" [errorDefs]="errorDefs">
+    <div>
+      <angular2-multiselect 
+        [data]="dropdownList" 
+        [formControl]="field"
+        [settings]="dropdownSettings" 
+        (onSelect)="onItemSelect($event)" 
+        (onDeSelect)="OnItemDeSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+        (onDeSelectAll)="onDeSelectAll($event)">
+      </angular2-multiselect>
+    </div>
+</aga-extended-input>
+
+<!-- [(ngModel)]="selectedItems"   -->

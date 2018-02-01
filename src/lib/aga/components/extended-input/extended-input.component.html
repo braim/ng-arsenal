@@ -1,0 +1,9 @@
+<div class="form-group" [ngClass]="class" >
+  <label class="control-label" [ngClass]="getClass()">
+    {{label}}<span class="astrik"></span>
+    <ng-content></ng-content>
+  </label>
+  <span class="help-block" *ngIf="isFieldInvalid(field)">
+    {{summarize(field.errors)}}
+  </span>
+</div>

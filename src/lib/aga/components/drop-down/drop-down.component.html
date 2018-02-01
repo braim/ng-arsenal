@@ -1,0 +1,5 @@
+<aga-extended-input [class]="class" [label]="label"   [field]="field" [errorDefs]="errorDefs">
+    <select class="form-control recalculate question-select" [formControl]="field">
+        <option *ngFor="let opt of options" [value]="opt.value">{{opt.text}}</option>
+    </select>
+</aga-extended-input>

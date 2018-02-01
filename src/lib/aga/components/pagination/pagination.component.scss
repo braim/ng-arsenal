@@ -1,0 +1,25 @@
+select {
+  width: 6em;
+}
+.pagination-row-2 {
+
+    ul {
+      display: inline-block;
+    }
+    select{
+      vertical-align: top;
+      display: inline-block;
+      margin-left: 20px;
+    }
+    div {
+      display: inline-block;
+      vertical-align: top;
+      padding: 7px;
+    }
+    ul {
+      margin: 0px 0px;
+    }
+}
+.pagination-row-1{
+  margin-bottom: 10px;
+}
